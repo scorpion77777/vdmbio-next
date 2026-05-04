@@ -129,8 +129,8 @@ export default async function ProductPage({ params }: Props) {
               </div>
               <div className="divide-y divide-slate-100 dark:divide-slate-800">
                 {specs.map(spec => (
-                  <div key={spec.label} className="flex px-5 py-3 gap-4">
-                    <span className="text-xs text-slate-400 uppercase tracking-wide w-36 shrink-0 pt-0.5">{spec.label}</span>
+                  <div key={spec.label} className="flex flex-col sm:flex-row px-4 sm:px-5 py-3 gap-1 sm:gap-4">
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wide sm:w-36 sm:shrink-0 sm:pt-0.5">{spec.label}</span>
                     <span className="text-sm font-mono text-slate-700 dark:text-slate-300 break-all">{spec.value}</span>
                   </div>
                 ))}
@@ -139,15 +139,36 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Variants table */}
+        {/* Variants — responsive cards on mobile, table on desktop */}
         {variants.length > 0 && (
           <div className="mb-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-            <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+            <div className="px-4 sm:px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
               <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Available Sizes & Pricing</h2>
             </div>
-            <table className="w-full text-sm">
+
+            {/* Mobile: card layout */}
+            <div className="sm:hidden divide-y divide-slate-100 dark:divide-slate-800">
+              {variants.map(v => (
+                <div key={v.id} className="px-4 py-4 flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-semibold text-slate-900 dark:text-white text-sm">{v.size}</p>
+                    <p className="font-mono text-[11px] text-slate-400 truncate">{v.sku}</p>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="font-bold text-slate-900 dark:text-white text-sm">{formatPrice(v.price)}</span>
+                    <Link href="/request-quote"
+                      className="px-3 py-1.5 bg-lab-600 hover:bg-lab-700 text-white text-xs font-medium rounded-lg transition-colors whitespace-nowrap">
+                      Request Quote
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: table layout */}
+            <table className="hidden sm:table w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100 dark:border-slate-800 bg-slate-25">
+                <tr className="border-b border-slate-100 dark:border-slate-800">
                   <th className="text-left px-6 py-3 text-xs font-mono text-slate-400 uppercase">SKU</th>
                   <th className="text-left px-6 py-3 text-xs font-mono text-slate-400 uppercase">Size</th>
                   <th className="text-left px-6 py-3 text-xs font-mono text-slate-400 uppercase">Price</th>
@@ -161,7 +182,8 @@ export default async function ProductPage({ params }: Props) {
                     <td className="px-6 py-4 font-semibold text-slate-900 dark:text-white">{v.size}</td>
                     <td className="px-6 py-4 font-bold text-slate-900 dark:text-white">{formatPrice(v.price)}</td>
                     <td className="px-6 py-4 text-right">
-                      <Link href="/request-quote" className="px-4 py-1.5 bg-lab-600 hover:bg-lab-700 text-white text-xs font-medium rounded-lg transition-colors">
+                      <Link href="/request-quote"
+                        className="px-4 py-1.5 bg-lab-600 hover:bg-lab-700 text-white text-xs font-medium rounded-lg transition-colors whitespace-nowrap">
                         Request Quote
                       </Link>
                     </td>

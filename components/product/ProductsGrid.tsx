@@ -78,7 +78,7 @@ export function ProductsGrid({ search, category, page = 1 }: ProductsGridProps) 
           <p className="text-sm">Try adjusting your search or category filter.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
           {paginated.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}
