@@ -10,12 +10,13 @@ const NAV_LINKS = [
   {
     label: 'Products', href: '/products',
     children: [
+      { label: 'All Products', href: '/products' },
       { label: 'Antivirals', href: '/products?category=antivirals' },
       { label: 'Apoptosis', href: '/products?category=apoptosis' },
       { label: 'Cancer Research', href: '/products?category=cancer' },
       { label: 'Enzyme Inhibitors', href: '/products?category=enzyme-inhibitors' },
       { label: 'Antibiotics', href: '/products?category=antibiotics' },
-      { label: 'All Products', href: '/products' },
+      
     ]
   },
   {
