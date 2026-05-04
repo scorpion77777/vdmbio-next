@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [25, 50, 75, 100],
     remotePatterns: [
       { protocol: 'https', hostname: 'pubchem.ncbi.nlm.nih.gov' },
       { protocol: 'https', hostname: '*.supabase.co' },

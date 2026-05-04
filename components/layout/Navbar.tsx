@@ -104,7 +104,7 @@ export function Navbar() {
             <Link href="/request-quote" className="hidden sm:flex ml-2 px-4 py-2 bg-lab-600 hover:bg-lab-700 text-white text-sm font-medium rounded-lg transition-colors">
               Request Quote
             </Link>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1">
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-lg text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1">
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
