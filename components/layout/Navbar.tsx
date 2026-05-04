@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ShoppingCart, Heart, User, Search, Menu, X, ChevronDown, FlaskConical } from 'lucide-react'
+import { ShoppingCart, Heart, User, Search, Menu, X, ChevronDown, Dna } from 'lucide-react'
 import { CartBadge } from './CartBadge'
 
 const NAV_LINKS = [
@@ -51,11 +51,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 bg-gradient-to-br from-lab-500 to-teal-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-              <FlaskConical size={18} className="text-white" />
+              <Dna size={18} className="text-white" />
             </div>
             <div className="leading-none">
-              <span className="font-display text-lg font-bold text-lab-700 dark:text-lab-300">VDM</span>
-              <span className="block text-[10px] font-mono tracking-widest text-slate-500 uppercase">Biochemicals</span>
+              <span className="font-display text-lg font-bold text-green-500 dark:text-lab-300">VDM</span>
+              <span className="block text-[10px] font-mono tracking-widest text-green-500 uppercase">Biochemicals</span>
             </div>
           </Link>
 
@@ -65,7 +65,7 @@ export function Navbar() {
                 onMouseEnter={() => link.children && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}>
                 <Link href={link.href}
-                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-lab-600 dark:hover:text-lab-400 rounded-md hover:bg-lab-50 dark:hover:bg-lab-950/50 transition-all">
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-black- dark:text-slate-300 hover:text-lab-600 dark:hover:text-lab-400 rounded-md hover:bg-lab-50 dark:hover:bg-lab-950/50 transition-all">
                   {link.label}
                   {link.children && <ChevronDown size={14} className={`transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                 </Link>
@@ -88,16 +88,16 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-1">
-            <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 rounded-lg text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <Search size={18} />
             </button>
-            <Link href="/my-account" className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hidden sm:flex">
+            <Link href="/my-account" className="p-2 rounded-lg text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hidden sm:flex">
               <Heart size={18} />
             </Link>
-            <Link href="/my-account" className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hidden sm:flex">
+            <Link href="/my-account" className="p-2 rounded-lg text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hidden sm:flex">
               <User size={18} />
             </Link>
-            <Link href="/cart" className="relative p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <Link href="/cart" className="relative p-2 rounded-lg text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <ShoppingCart size={18} />
               <CartBadge />
             </Link>
